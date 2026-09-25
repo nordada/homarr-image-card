@@ -1,0 +1,297 @@
+{
+  "image": {
+    "label": "Image",
+    "description": "Chosen with the picker at the top of these settings, which lists everything from Manage then Media and can upload a new file in place. Homarr renders this one control without its label, so the unlabelled picker above is this option. A direct image URL can be typed into it instead.",
+    "control": "icon",
+    "default": ""
+  },
+  "title": {
+    "label": "Title",
+    "description": "Shown above the caption. Leave empty to show no title.",
+    "control": "text",
+    "default": ""
+  },
+  "caption": {
+    "label": "Caption",
+    "description": "Shown under the title in smaller dimmed text. Leave empty to show no caption. Plain text only: markdown and HTML render literally in every Homarr field.",
+    "control": "textarea",
+    "default": ""
+  },
+  "textPlacement": {
+    "label": "Title and caption placement",
+    "description": "Below puts the text under the image on the tile background. Over the image puts it across the bottom of the photo, which fills the tile edge to edge. Hidden shows the image alone and keeps whatever you typed.",
+    "control": "select",
+    "default": "below",
+    "choices": [
+      {
+        "label": "Below the image",
+        "value": "below"
+      },
+      {
+        "label": "Over the image",
+        "value": "overlay"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "fit": {
+    "label": "How the image fills its frame",
+    "description": "Cover fills the frame and crops what does not fit. Contain shows the whole image and leaves empty space. Stretch distorts it to fit. Over the image placement always covers.",
+    "control": "select",
+    "default": "cover",
+    "choices": [
+      {
+        "label": "Cover, cropping the overflow",
+        "value": "cover"
+      },
+      {
+        "label": "Contain, showing all of it",
+        "value": "contain"
+      },
+      {
+        "label": "Stretch to fit",
+        "value": "fill"
+      },
+      {
+        "label": "Shrink only",
+        "value": "scale-down"
+      },
+      {
+        "label": "No scaling",
+        "value": "none"
+      }
+    ]
+  },
+  "focalPoint": {
+    "label": "Keep this part in frame",
+    "description": "Which part of the image survives cropping. Only matters with Cover. Use Top for anything with a horizon or a face near the top.",
+    "control": "select",
+    "default": "center",
+    "choices": [
+      {
+        "label": "Centre",
+        "value": "center"
+      },
+      {
+        "label": "Top",
+        "value": "top"
+      },
+      {
+        "label": "Bottom",
+        "value": "bottom"
+      },
+      {
+        "label": "Left",
+        "value": "left"
+      },
+      {
+        "label": "Right",
+        "value": "right"
+      }
+    ]
+  },
+  "aspectRatio": {
+    "label": "Shape of the image",
+    "description": "Fill the tile uses whatever space the widget has, so the shape follows how you size it on the board. Any other value holds that shape and leaves the rest of the tile to the title and caption.",
+    "control": "select",
+    "default": "0",
+    "choices": [
+      {
+        "label": "Fill the tile",
+        "value": "0"
+      },
+      {
+        "label": "16:9 widescreen",
+        "value": "1.7778"
+      },
+      {
+        "label": "3:2 photo",
+        "value": "1.5"
+      },
+      {
+        "label": "4:3 classic",
+        "value": "1.3333"
+      },
+      {
+        "label": "1:1 square",
+        "value": "1"
+      },
+      {
+        "label": "3:4 portrait",
+        "value": "0.75"
+      },
+      {
+        "label": "9:16 tall",
+        "value": "0.5625"
+      },
+      {
+        "label": "21:9 ultrawide",
+        "value": "2.3333"
+      }
+    ]
+  },
+  "radius": {
+    "label": "Corner rounding",
+    "description": "Rounds the image, and the whole tile when the text sits over the image.",
+    "control": "select",
+    "default": "md",
+    "choices": [
+      {
+        "label": "Square",
+        "value": "0"
+      },
+      {
+        "label": "Slight",
+        "value": "xs"
+      },
+      {
+        "label": "Small",
+        "value": "sm"
+      },
+      {
+        "label": "Medium",
+        "value": "md"
+      },
+      {
+        "label": "Large",
+        "value": "lg"
+      },
+      {
+        "label": "Very large",
+        "value": "xl"
+      }
+    ]
+  },
+  "withBorder": {
+    "label": "Draw a border",
+    "description": "A thin outline around the image, in the board theme's border colour.",
+    "control": "switch",
+    "default": false
+  },
+  "padding": {
+    "label": "Padding",
+    "description": "Space in pixels between the tile edge and the image. Zero lets the image run to the edge.",
+    "control": "slider",
+    "default": 8,
+    "min": 0,
+    "max": 24,
+    "step": 2
+  },
+  "imageOpacity": {
+    "label": "Image opacity",
+    "description": "Fades the image, for using one as a backdrop behind its own caption. Ignored when the text sits over the image, where fading would take the text with it.",
+    "control": "slider",
+    "default": 100,
+    "min": 20,
+    "max": 100,
+    "step": 5
+  },
+  "align": {
+    "label": "Text alignment",
+    "description": "Applies to the title and the caption together.",
+    "control": "select",
+    "default": "left",
+    "choices": [
+      {
+        "label": "Left",
+        "value": "left"
+      },
+      {
+        "label": "Centre",
+        "value": "center"
+      },
+      {
+        "label": "Right",
+        "value": "right"
+      }
+    ]
+  },
+  "titleSize": {
+    "label": "Title size",
+    "control": "select",
+    "default": "sm",
+    "choices": [
+      {
+        "label": "Very small",
+        "value": "xs"
+      },
+      {
+        "label": "Small",
+        "value": "sm"
+      },
+      {
+        "label": "Medium",
+        "value": "md"
+      },
+      {
+        "label": "Large",
+        "value": "lg"
+      },
+      {
+        "label": "Very large",
+        "value": "xl"
+      }
+    ]
+  },
+  "boldTitle": {
+    "label": "Bold title",
+    "description": "Off renders the title in the same weight as ordinary text.",
+    "control": "switch",
+    "default": true
+  },
+  "captionSize": {
+    "label": "Caption size",
+    "control": "select",
+    "default": "xs",
+    "choices": [
+      {
+        "label": "Very small",
+        "value": "xs"
+      },
+      {
+        "label": "Small",
+        "value": "sm"
+      },
+      {
+        "label": "Medium",
+        "value": "md"
+      }
+    ]
+  },
+  "captionLines": {
+    "label": "Limit the caption to this many lines",
+    "description": "Anything past the limit is cut off with an ellipsis, which keeps a long caption from pushing the image out of a small tile. Zero shows all of it.",
+    "control": "slider",
+    "default": 0,
+    "min": 0,
+    "max": 6,
+    "step": 1
+  },
+  "scrim": {
+    "label": "Darken behind overlaid text",
+    "description": "A gradient from transparent to dark behind the title and caption when they sit over the image, so light photos stay readable. Only used with that placement.",
+    "control": "switch",
+    "default": true
+  },
+  "linkUrl": {
+    "label": "Open this link when the image is clicked",
+    "description": "Leave empty for a plain image. Must be a full http or https URL, or a path on this Homarr starting with a single slash. The sandbox drops anything else, silently, leaving the image unclickable.",
+    "control": "text",
+    "default": ""
+  },
+  "linkNewTab": {
+    "label": "Open the link in a new tab",
+    "description": "Off replaces the dashboard with the link target.",
+    "control": "switch",
+    "default": true
+  },
+  "altText": {
+    "label": "Description for screen readers",
+    "description": "Read aloud in place of the image. Falls back to the title when empty. Worth writing for anything carrying information rather than decoration.",
+    "control": "text",
+    "default": ""
+  }
+}

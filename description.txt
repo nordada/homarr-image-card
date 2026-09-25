@@ -1,0 +1,1 @@
+Shows one image from Manage, then Media, with an optional title and caption either beneath it or across the bottom of the photo. Crop, shape, rounding, padding, opacity and text sizing are all options, and the image can link somewhere when clicked. Pick the image with the unlabelled picker at the top of the settings.

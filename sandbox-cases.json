@@ -1,0 +1,125 @@
+{
+  "apps": [],
+  "cases": [
+    {
+      "label": "no image chosen",
+      "options": {}
+    },
+    {
+      "label": "image only",
+      "options": {
+        "image": "/api/user-medias/abc123"
+      }
+    },
+    {
+      "label": "title and caption below",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "caption": "Course three, 2026-09-14"
+      }
+    },
+    {
+      "label": "text over the image",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "caption": "Course three",
+        "textPlacement": "overlay"
+      }
+    },
+    {
+      "label": "overlay without the scrim",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "textPlacement": "overlay",
+        "scrim": false
+      }
+    },
+    {
+      "label": "text hidden",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "textPlacement": "hidden"
+      }
+    },
+    {
+      "label": "fixed aspect ratio",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "aspectRatio": "1.7778"
+      }
+    },
+    {
+      "label": "contained, top focal point",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "fit": "contain",
+        "focalPoint": "top"
+      }
+    },
+    {
+      "label": "bordered and square",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "withBorder": true,
+        "radius": "0"
+      }
+    },
+    {
+      "label": "faded, clamped caption",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "caption": "A long caption that would otherwise push the image out of a short tile",
+        "imageOpacity": 40,
+        "captionLines": 2
+      }
+    },
+    {
+      "label": "clickable",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "linkUrl": "https://example.org/album"
+      }
+    },
+    {
+      "label": "clickable in the same tab",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "linkUrl": "/boards/photos",
+        "linkNewTab": false
+      }
+    },
+    {
+      "label": "external image url",
+      "options": {
+        "image": "https://example.org/photo.jpg",
+        "title": "Remote"
+      }
+    },
+    {
+      "label": "centred, large, not bold",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Shed roof",
+        "caption": "Course three",
+        "align": "center",
+        "titleSize": "lg",
+        "boldTitle": false,
+        "captionSize": "sm"
+      }
+    },
+    {
+      "label": "no padding",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "padding": 0
+      }
+    }
+  ]
+}
