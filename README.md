@@ -74,7 +74,8 @@ knowing before putting something private on a board.
 | `focalPoint` | select | centre | Which part survives cropping |
 | `aspectRatio` | select | fill the tile | 16:9, 3:2, 4:3, 1:1, 3:4, 9:16, 21:9 |
 | `radius` | select | md | Corner rounding of the picture |
-| `withBorder` | switch | off | Outline hugging the picture; the whole tile when text is over the image |
+| `withBorder` | switch | off | Outline around the tile, at the board's item radius |
+| `borderColor` | color | empty | Border colour; empty keeps the theme's |
 | `padding` | slider | 8 | Tile edge to image, in pixels |
 | `imageOpacity` | slider | 100 | Fades the image. Ignored over the image |
 | `align` | select | left | Title and caption together |
@@ -146,8 +147,12 @@ GPL-3.0. See [LICENSE](LICENSE).
   cannot be placed at an arbitrary point on the image. Overlaid text sits in a
   flex column at the bottom, and that is the only option.
 - **`filter` is blocked too**, so no greyscale or blur. `opacity` works.
-- **Rounding and the border follow the picture.** Under `contain` the `<img>`
-  is sized by the picture and capped at the box, so its edge is the picture's
-  edge and the focal point says where it sits in the tile. A logo with a
-  transparent background still shows no rounded corner, since the corners are
-  transparent; the border around it is drawn.
+- **Rounding follows the picture, the border follows the tile.** Under
+  `contain` the `<img>` is sized by the picture and capped at the box, so the
+  rounding sits on the picture's edge and the focal point says where it sits
+  in the tile. A logo with a transparent background shows no rounded corner,
+  since the corners are transparent. The border is a Paper around the whole
+  widget with no radius of its own, so it inherits the card's and lines up
+  with the tile edge. Homarr's own advanced option *Border colour* colours the
+  card's border instead and works for every widget and app; this one exists
+  for boards whose custom CSS overrides that.

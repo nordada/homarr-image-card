@@ -167,9 +167,15 @@
   },
   "withBorder": {
     "label": "Draw a border",
-    "description": "A thin outline that hugs the picture, in the board theme's border colour. Around the whole tile when the text sits over the image.",
+    "description": "A thin outline around the tile, at the board's item radius. Takes the colour below, or the theme's border colour when that is blank.",
     "control": "switch",
     "default": false
+  },
+  "borderColor": {
+    "label": "Border colour",
+    "description": "Used when the border is on. Blank keeps the theme's border colour.",
+    "control": "color",
+    "default": ""
   },
   "padding": {
     "label": "Padding",

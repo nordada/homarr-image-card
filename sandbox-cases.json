@@ -130,7 +130,8 @@
         "focalPoint": "top",
         "withBorder": true,
         "radius": "sm",
-        "linkUrl": "https://example.com"
+        "linkUrl": "https://example.com",
+        "borderColor": "#be4bdb"
       }
     }
   ]
