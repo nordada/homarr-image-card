@@ -131,16 +131,20 @@ OVERLAY = (
 
 STACKED = (
     f'<Stack h="100%" w="100%" gap={{6}} p={{{PAD}}}>'
-    f'<Box style={{{{flex:"1 1 auto",minHeight:0}}}}>{FRAMED}</Box>'
+    f'<Paper withBorder={{options.withBorder===true}} radius={{{RADIUS}}} bg="transparent" '
+    f'style={{{{flex:"1 1 auto",minHeight:0,overflow:"hidden"}}}}>{FRAMED}</Paper>'
     f'{{{HAS_TEXT}?({text_block(False)}):null}}'
     '</Stack>'
 )
 
+# The border hugs the image box in the stacked layout (the Paper inside
+# STACKED), so it stays visible on a themed board whose card already draws its
+# own border at the tile edge. Only the overlay, where the image is the tile,
+# borders the whole tile.
 BORDERED = (
-    f'{{options.withBorder===true?(<Paper withBorder radius={{{RADIUS}}} '
-    f'h="100%" w="100%" style={{{{overflow:"hidden"}}}}>{{{PLACEMENT}==="overlay"'
-    f'?({OVERLAY}):({STACKED})}}</Paper>):'
-    f'({PLACEMENT}==="overlay"?({OVERLAY}):({STACKED}))}}'
+    f'{{{PLACEMENT}==="overlay"?(options.withBorder===true?(<Paper withBorder radius={{{RADIUS}}} '
+    f'bg="transparent" h="100%" w="100%" style={{{{overflow:"hidden"}}}}>{OVERLAY}</Paper>):'
+    f'({OVERLAY})):({STACKED})}}'
 )
 
 TEMPLATE = (

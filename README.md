@@ -73,8 +73,8 @@ knowing before putting something private on a board.
 | `fit` | select | cover | cover, contain, fill, scale-down, none |
 | `focalPoint` | select | centre | Which part survives cropping |
 | `aspectRatio` | select | fill the tile | 16:9, 3:2, 4:3, 1:1, 3:4, 9:16, 21:9 |
-| `radius` | select | md | Corner rounding |
-| `withBorder` | switch | off | Outline in the theme's border colour |
+| `radius` | select | md | Corner rounding. Shows only where the picture fills its box |
+| `withBorder` | switch | off | Outline around the image box; the whole tile when text is over the image |
 | `padding` | slider | 8 | Tile edge to image, in pixels |
 | `imageOpacity` | slider | 100 | Fades the image. Ignored over the image |
 | `align` | select | left | Title and caption together |
@@ -146,3 +146,8 @@ GPL-3.0. See [LICENSE](LICENSE).
   cannot be placed at an arbitrary point on the image. Overlaid text sits in a
   flex column at the bottom, and that is the only option.
 - **`filter` is blocked too**, so no greyscale or blur. `opacity` works.
+- **Rounding and the border act on the image box, not the picture.** Under
+  `contain` the picture is letterboxed inside a transparent box, so rounding
+  the box changes nothing visible, and a logo with a transparent background
+  never shows a rounded corner. Use `cover`, or an aspect ratio that matches
+  the image, when the rounding matters.
