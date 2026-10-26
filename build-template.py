@@ -36,6 +36,14 @@ FOCAL = "(options.focalPoint||\"center\")"
 ALIGN = "(options.align||\"left\")"
 PLACEMENT = "(options.textPlacement||\"below\")"
 OPACITY = "((options.imageOpacity===undefined?100:options.imageOpacity)/100)"
+# Under contain the picture keeps its own shape, so the <img> is sized by the
+# picture (auto, capped at the box) and the box aligns it from the focal point.
+# Every other fit stretches the <img> over the box, where the focal point is
+# object-position. Radius and border then follow the picture in both cases.
+SIZE = f'{FIT}==="contain"?"auto":"100%"'
+JUSTIFY = f'({FOCAL}==="left"?"flex-start":({FOCAL}==="right"?"flex-end":"center"))'
+ALIGN_Y = f'({FOCAL}==="top"?"flex-start":({FOCAL}==="bottom"?"flex-end":"center"))'
+BORDER = 'options.withBorder===true?"1px solid var(--mantine-color-default-border)":undefined'
 SCRIM = ("\"linear-gradient(to top, rgba(0,0,0,0.78) 0%, "
          "rgba(0,0,0,0.45) 45%, rgba(0,0,0,0) 78%)\"")
 
@@ -44,24 +52,25 @@ SCRIM = ("\"linear-gradient(to top, rgba(0,0,0,0.78) 0%, "
 IMAGE = (
     '<Image src={options.image} '
     'alt={options.altText||options.title||"Image"} '
-    f'fit={{{FIT}}} radius={{{RADIUS}}} h="100%" w="100%" '
-    '{...{}} '
-    f'style={{{{objectPosition:{FOCAL},opacity:{OPACITY}}}}} />'
-).replace('{...{}} ', '')
+    f'fit={{{FIT}}} radius={{{RADIUS}}} h={{{SIZE}}} w={{{SIZE}}} '
+    f'style={{{{objectPosition:{FOCAL},opacity:{OPACITY},maxWidth:"100%",maxHeight:"100%",'
+    f'border:{BORDER}}}}} />'
+)
 
 LINKED = (
     f'{{(options.linkUrl||"")===""?({IMAGE}):'
     '(<Anchor href={options.linkUrl} '
     'target={options.linkNewTab===false?"_self":"_blank"} '
-    'display="block" h="100%" w="100%">'
+    f'display="flex" h="100%" w="100%" style={{{{justifyContent:{JUSTIFY},alignItems:{ALIGN_Y}}}}}>'
     f'{IMAGE}</Anchor>)}}'
 )
 
 # AspectRatio holds the shape; "fill the tile" skips it so the image can take
 # whatever height the board gives the widget.
 FRAMED = (
-    f'{{{RATIO}===0?(<Box h="100%" w="100%">{LINKED}</Box>):'
-    f'(<AspectRatio ratio={{{RATIO}}}>{LINKED}</AspectRatio>)}}'
+    f'{{{RATIO}===0?(<Flex h="100%" w="100%" justify={{{JUSTIFY}}} align={{{ALIGN_Y}}}>{LINKED}</Flex>):'
+    f'(<AspectRatio ratio={{{RATIO}}}><Flex h="100%" w="100%" justify={{{JUSTIFY}}} align={{{ALIGN_Y}}}>'
+    f'{LINKED}</Flex></AspectRatio>)}}'
 )
 
 TITLE = (
@@ -131,16 +140,15 @@ OVERLAY = (
 
 STACKED = (
     f'<Stack h="100%" w="100%" gap={{6}} p={{{PAD}}}>'
-    f'<Paper withBorder={{options.withBorder===true}} radius={{{RADIUS}}} bg="transparent" '
-    f'style={{{{flex:"1 1 auto",minHeight:0,overflow:"hidden"}}}}>{FRAMED}</Paper>'
+    f'<Box style={{{{flex:"1 1 auto",minHeight:0}}}}>{FRAMED}</Box>'
     f'{{{HAS_TEXT}?({text_block(False)}):null}}'
     '</Stack>'
 )
 
-# The border hugs the image box in the stacked layout (the Paper inside
-# STACKED), so it stays visible on a themed board whose card already draws its
-# own border at the tile edge. Only the overlay, where the image is the tile,
-# borders the whole tile.
+# In the stacked layout the border is on the <img> itself (see IMAGE), so it
+# hugs the picture and stays visible on a themed board whose card already draws
+# its own border at the tile edge. Only the overlay, where the image is the
+# tile, borders the whole tile.
 BORDERED = (
     f'{{{PLACEMENT}==="overlay"?(options.withBorder===true?(<Paper withBorder radius={{{RADIUS}}} '
     f'bg="transparent" h="100%" w="100%" style={{{{overflow:"hidden"}}}}>{OVERLAY}</Paper>):'

@@ -135,7 +135,7 @@
   },
   "radius": {
     "label": "Corner rounding",
-    "description": "Rounds the image, and the whole tile when the text sits over the image. Only visible where the picture fills its box: cover, or an aspect ratio that matches the image. A transparent logo under contain has no corners to round.",
+    "description": "Rounds the picture, and the whole tile when the text sits over the image. A picture with transparent corners shows no rounding, since there is nothing there to round.",
     "control": "select",
     "default": "md",
     "choices": [
@@ -167,7 +167,7 @@
   },
   "withBorder": {
     "label": "Draw a border",
-    "description": "A thin outline around the image box, in the board theme's border colour. Around the whole tile when the text sits over the image.",
+    "description": "A thin outline that hugs the picture, in the board theme's border colour. Around the whole tile when the text sits over the image.",
     "control": "switch",
     "default": false
   },

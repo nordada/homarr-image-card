@@ -120,6 +120,18 @@
         "image": "/api/user-medias/abc123",
         "padding": 0
       }
+    },
+    {
+      "label": "bordered, contained, linked, top focal point",
+      "options": {
+        "image": "/api/user-medias/abc123",
+        "title": "Mark",
+        "fit": "contain",
+        "focalPoint": "top",
+        "withBorder": true,
+        "radius": "sm",
+        "linkUrl": "https://example.com"
+      }
     }
   ]
 }
