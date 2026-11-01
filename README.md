@@ -15,6 +15,10 @@ title and caption.
  └────────────────┘
 ```
 
+| Dark, on a themed board | Light, stock Homarr |
+| --- | --- |
+| ![The card on a dark themed board](docs/screenshots/card-dark.png) | ![The card on stock Homarr in light mode](docs/screenshots/card-light.png) |
+
 No requests, no integrations. Everything comes from the options, so the widget
 works on a board with nothing else configured.
 
