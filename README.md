@@ -76,7 +76,7 @@ knowing before putting something private on a board.
 | `radius` | select | md | Corner rounding of the picture |
 | `withBorder` | switch | off | Outline around the tile, at the board's item radius |
 | `borderColor` | color | empty | Border colour; empty keeps the theme's |
-| `padding` | slider | 8 | Tile edge to image, in pixels |
+| `padding` | slider | 8 | Tile edge to image, in pixels. Over the image, it insets the text instead |
 | `imageOpacity` | slider | 100 | Fades the image. Ignored over the image |
 | `align` | select | left | Title and caption together |
 | `titleSize` | select | sm | |

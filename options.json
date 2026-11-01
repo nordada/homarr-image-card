@@ -179,7 +179,7 @@
   },
   "padding": {
     "label": "Padding",
-    "description": "Space in pixels between the tile edge and the image. Zero lets the image run to the edge.",
+    "description": "Space in pixels between the tile edge and the image. Zero lets the image run to the edge. When the text sits over the image, the image always fills the tile and this insets the title and caption instead.",
     "control": "slider",
     "default": 8,
     "min": 0,
